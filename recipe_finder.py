@@ -4,10 +4,13 @@ class Result:
         self.title = page_title
 
 # following code taken from geeksforgeeks and stackoverflow: find url later 
+
+
 try:
+    from bs4 import BeautifulSoup
     from googlesearch import search
-    from urrlib2 import urlopen
-    from lxml.html import parse
+    import lxml
+    import urllib 
 except ImportError:
     print("One or more modules not imported")
 
@@ -17,21 +20,31 @@ carb = input("How many grams of carbohydrates do you want your meal to have?")
 fat = input("How many grams of fat do you want your meal to have?")
 pref = input("What preferences do you have (e.g. keto, vegan, nut allergy ...)")
 
-query = pref + "meal with " + cal "calories " + prot + "grams of protein " + carb + "grams of carbohydrates " + fat + "grams of fat" 
+query = pref + "meal with " + cal + "calories " + prot + "grams of protein " + carb + "grams of carbohydrates " + fat + "grams of fat" 
 
 count = 1
-for i in search(query, tld="co.in", num=5, stop=5, pause=2):
+for url in search(query, tld="co.in", num=5, stop=5, pause=2):
     if count == 1:
-        res1 = Result()
+        page = BeautifulSoup(urllib.request.urlopen(url), "lxml")
+        res1 = Result(url, page.title.string)
     elif count == 2:
-        res2 = Result()
+        page = BeautifulSoup(urllib.request.urlopen(url), "lxml")
+        res2 = Result(url, page.title.string)
     elif count == 3:
-        res3 = Result()
+        page = BeautifulSoup(urllib.request.urlopen(url), "lxml")
+        res3 = Result(url, page.title.string)
     elif count == 4:
-        res4 = Result()
+        page = BeautifulSoup(urllib.request.urlopen(url), "lxml")
+        res4 = Result(url, page.title.string)
     else:
-        res5 = Result()
+        page = BeautifulSoup(urllib.request.urlopen(url), "lxml")
+        res5 = Result(url, page.title.string)
     count += 1
 
+print(res1.title)
+print(res2.title)
+print(res3.title)
+print(res4.title)
+print(res5.title)
 
 

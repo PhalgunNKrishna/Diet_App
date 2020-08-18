@@ -21,7 +21,7 @@ fat = input("How many grams of fat do you want your meal to have?")
 pref = input("What preferences do you have (e.g. keto, vegan, nut allergy ...)")
 
 # Google search query
-query = pref + "meal with " + cal + "calories " + prot + "grams of protein " + carb + "grams of carbohydrates " + fat + "grams of fat" 
+query = "MyFitnessPal " + pref + "recipe with " + cal + "calories " + prot + "grams of protein " + carb + "grams of carbohydrates " + fat + "grams of fat" 
 
 count = 1
 for url in search(query, tld="co.in", num=5, stop=5, pause=2):

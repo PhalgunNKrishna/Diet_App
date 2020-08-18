@@ -6,6 +6,11 @@ class Result:
 # following code taken from geeksforgeeks and stackoverflow and others: find url later 
 
 
+# from:
+# https://www.geeksforgeeks.org/performing-google-search-using-python-code/
+# https://stackoverflow.com/questions/51233/how-can-i-retrieve-the-page-title-of-a-webpage-using-python
+# https://stackoverflow.com/questions/24398302/bs4-featurenotfound-couldnt-find-a-tree-builder-with-the-features-you-requeste
+# https://stackoverflow.com/questions/16627227/http-error-403-in-python-3-web-scraping
 try:
     from bs4 import BeautifulSoup
     from googlesearch import search
